@@ -203,7 +203,7 @@ func Push(ctx context.Context, name, destination string, options *images.PushOpt
 	}
 	defer response.Body.Close()
 
-	return idr.ID, err
+	return idr.ID, response.Process(&idr)
 }
 
 // Modify modifies the given manifest list using options and the optional list of images
